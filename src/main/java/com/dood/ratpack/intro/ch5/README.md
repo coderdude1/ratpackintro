@@ -14,3 +14,9 @@ Order of ops.  Note I renamed some of the classes to make them a bit more cleare
 1.  PrintThenNextApplication and RunPrintThenNextApplication
 1.  PrintThenInsertOrNextApplication and RunPrintThenInsertOrNextApplication
 1.  RouterChain and RunRouterChain
+
+# Chains
+chains are really just a way to manage handlers.  The API doc gives good info on this, and registries
+https://ratpack.io/manual/current/api/ratpack/handling/Chain.html
+
+Same for path bindings
