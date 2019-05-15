@@ -11,17 +11,18 @@ public class RunApplication {
         EmbeddedApp
                 .fromHandlers(chain -> chain
                         .prefix("person/:id", personChain -> personChain
-                                .all(ctx -> {
-                                    String id = ctx.getPathTokens().get("id"); // (1)
+                                .all(ctx -> { //all incoming requests get this first.
+                                    //the next line is same as 'ctx.get(PathBinding.class).getPathTokens() '
+                                    String id = ctx.getPathTokens().get("id"); // (1) get the id from the request as a local var
                                     Person person = new PersonImpl(id, "example-status", "example-age");
-                                    ctx.next(Registry.single(Person.class, person)); // (2)
+                                    ctx.next(Registry.single(Person.class, person)); // (2) stuff the person on the registry
                                 })
-                                .get("status", ctx -> {
-                                    Person person = ctx.get(Person.class); // (3)
+                                .get("status", ctx -> { //stuff in the .all are visible
+                                    Person person = ctx.get(Person.class); // (3) get the person from the all step
                                     ctx.render("person " + person.getId() + " status: " + person.getStatus());
                                 })
                                 .get("age", ctx -> {
-                                    Person person = ctx.get(Person.class); // (4)
+                                    Person person = ctx.get(Person.class); // (4) get the person from the all step
                                     ctx.render("person " + person.getId() + " age: " + person.getAge());
                                 }))
                 )
