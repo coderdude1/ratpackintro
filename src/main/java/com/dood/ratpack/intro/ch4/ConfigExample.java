@@ -1,15 +1,13 @@
 package com.dood.ratpack.intro.ch4;
 
-import ratpack.server.ServerConfig;
-import ratpack.test.embed.EphemeralBaseDir;
 import ratpack.test.embed.EmbeddedApp;
+import ratpack.test.embed.EphemeralBaseDir;
 
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Path;
 
 import static org.junit.Assert.assertEquals;
-
 
 public class ConfigExample {
     public static void main(String... args) throws Exception {
