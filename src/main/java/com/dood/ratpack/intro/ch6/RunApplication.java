@@ -10,7 +10,7 @@ public class RunApplication {
     public static void main(String... args) throws Exception {
         EmbeddedApp
                 .fromHandlers(chain -> chain
-                        .prefix("person/:id", (personChain) -> personChain
+                        .prefix("person/:id", personChain -> personChain
                                 .all(ctx -> {
                                     String id = ctx.getPathTokens().get("id"); // (1)
                                     Person person = new PersonImpl(id, "example-status", "example-age");

@@ -7,7 +7,7 @@ import ratpack.handling.Handler;
 
 public class PrintThenNextHandler implements Handler {
     private final String message;
-    private final static Logger LOGGER = LoggerFactory.getLogger(PrintThenNextHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PrintThenNextHandler.class);
 
 
     public PrintThenNextHandler(String message) {
